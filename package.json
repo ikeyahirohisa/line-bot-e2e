@@ -1,0 +1,11 @@
+{
+  "name": "line-bot-e2e",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:ikeyahirohisa/line-bot-e2e.git",
+  "author": "Hirohisa Ikeya <ikeya@shuttlerock.co.jp>",
+  "license": "MIT",
+  "dependencies": {
+    "puppeteer": "^2.1.1"
+  }
+}
