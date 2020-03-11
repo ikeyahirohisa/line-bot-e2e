@@ -22,9 +22,19 @@ const puppeteer = require('puppeteer');
 
   await passCloudFlare(page)
 
-  // Test #1 Fail to login with wrong username & pass
-  await page.type('#user_username', 'test@example.com');
-  await page.type('#user_password', 'wrongpassword');
+  // Test#1 Fail to login with wrong username & pass
+  await page.type('#user_username', 'test', {delay: 20});
+  await page.type('#user_password', 'wrongpassword', {delay: 20});
+  await page.click('input[name="commit"]');
+  await page.waitFor(3000)
+
+  // Test#2 Try to login to line-bot my account with corrent login info
+  // Remove existing input from test #1
+  const input = await page.$('#user_username');
+  await input.click({ clickCount: 3 })
+
+  await page.type('#user_username', 'linebot_tester', {delay: 20});
+  await page.type('#user_password', 'griw9jump*VUSH', {delay: 20});
   await page.click('input[name="commit"]');
   await page.waitFor(3000)
 
